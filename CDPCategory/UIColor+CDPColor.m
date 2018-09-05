@@ -11,6 +11,29 @@
 
 @implementation UIColor (CDPColor)
 
+/**
+ *  随机生成不同颜色的方法
+ *
+ *  @param count 需要生成的颜色数
+ *
+ *  @return 所有生成的颜色
+ */
++ (NSMutableArray *)getAllColors:(NSInteger)count{
+    NSMutableArray *myColors = [NSMutableArray array];
+    
+    NSInteger startColor = 0xdddddd;
+    NSInteger endColor = 0xff111111;
+    NSInteger step = (startColor-endColor)/(count+3);
+    NSInteger hexValue;
+    for (NSInteger i = count-1; i>=0; i--) {
+        hexValue = 0xff000000 | (NSInteger)(endColor+step*i);
+        
+        UIColor *resultColor = [UIColor colorWithRed:((float)((hexValue & 0xFF0000) >> 16)) / 255.0 green:((float)((hexValue & 0xFF00) >> 8)) / 255.0 blue:((float)(hexValue & 0xFF)) / 255.0 alpha:1.0f];
+        
+        [myColors addObject:resultColor];
+    }
+    return myColors;
+}
 #pragma mark  十六进制颜色
 +(UIColor *)colorWithHexColorString:(NSString *)hexColorString{
     return [self colorWithHexColorString:hexColorString alpha:1.0f];
