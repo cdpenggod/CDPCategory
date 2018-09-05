@@ -25,5 +25,14 @@
  */
 + (UIColor *)colorWithHexColorString:(NSString *)hexColorString alpha:(float)alpha;
 
+/**
+ *  随机生成不同颜色的方法
+ *
+ *  @param count 需要生成的颜色数
+ *
+ *  @return 所有生成的颜色
+ */
++ (NSMutableArray *)getAllColors:(NSInteger)count;
+
 
 @end
