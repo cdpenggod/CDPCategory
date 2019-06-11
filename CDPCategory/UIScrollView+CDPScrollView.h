@@ -10,4 +10,13 @@
 
 @interface UIScrollView (CDPScrollView)
 
+
+
+/**
+ *  判断进行提前上拉预加载(需要MJRefresh)
+ */
+//-(void)judgeAutoFootRefresh
+
+
+
 @end
