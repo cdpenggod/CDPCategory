@@ -24,6 +24,7 @@
     
     if (@available(iOS 11.0, *)) {
         self.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        self.contentInset=UIEdgeInsetsMake(0, 0, 0, 0);
     } else {
         // Fallback on earlier versions
     }
