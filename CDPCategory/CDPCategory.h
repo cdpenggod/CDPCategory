@@ -17,6 +17,7 @@
 #import "UIScrollView+CDPScrollView.h"
 #import "UITableView+CDPTableView.h"
 #import "UICollectionView+CDPCollectionView.h"
+#import "UIButton+CDPButton.h"
 
 #ifdef DEBUG
 #    define DLog(fmt,...) NSLog(fmt,##__VA_ARGS__)
