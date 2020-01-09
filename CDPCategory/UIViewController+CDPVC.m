@@ -24,7 +24,7 @@
     dispatch_once(&onceToken, ^{
         //MethodSwizzling举例
         [self didMethodSwizzlingWithOriginalSel:@selector(viewWillAppear:) swizzledSel:@selector(CDP_viewWillAppear:) class:[self class]];
-        [self didMethodSwizzlingWithOriginalSel:@selector(viewDidAppear:) swizzledSel:@selector(CDP_viewWillAppear:) class:[self class]];
+        [self didMethodSwizzlingWithOriginalSel:@selector(viewDidAppear:) swizzledSel:@selector(CDP_viewDidAppear:) class:[self class]];
     });
 }
 +(void)didMethodSwizzlingWithOriginalSel:(SEL)originalSel swizzledSel:(SEL)swizzledSel class:(Class)theClass{
