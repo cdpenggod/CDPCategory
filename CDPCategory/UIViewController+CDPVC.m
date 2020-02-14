@@ -23,6 +23,7 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         //MethodSwizzling举例
+        [self didMethodSwizzlingWithOriginalSel:@selector(viewDidLoad) swizzledSel:@selector(CDP_viewDidLoad) class:[self class]];
         [self didMethodSwizzlingWithOriginalSel:@selector(viewWillAppear:) swizzledSel:@selector(CDP_viewWillAppear:) class:[self class]];
         [self didMethodSwizzlingWithOriginalSel:@selector(viewDidAppear:) swizzledSel:@selector(CDP_viewDidAppear:) class:[self class]];
     });
@@ -49,6 +50,13 @@
     else{
         method_exchangeImplementations(originalMethod,swizzledMethod);
     }
+}
+-(void)CDP_viewDidLoad{
+    //允许vc扩展到屏幕顶部
+    [self setEdgesForExtendedLayout:UIRectEdgeAll];
+    [self setExtendedLayoutIncludesOpaqueBars:YES];
+    
+    [self HJ_viewDidLoad];
 }
 -(void)CDP_viewWillAppear:(BOOL)animated{
     
