@@ -25,7 +25,11 @@
  */
 @property (nonatomic,assign) NSTimeInterval cdpEventTime;
 
-
+/**
+ *  在button原有范围修改button响应区域
+ *  (值正数为向button内方向修改，负数为向button外方向修改，即正数缩小，负数扩充)
+ */
+@property(nonatomic,assign) UIEdgeInsets cdpEdgeInsets;
 
 
 
