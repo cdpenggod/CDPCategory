@@ -128,6 +128,6 @@ BOOL stringVaild(NSString * _Nullable str);
 
 /// 转化为String
 /// 首先检查是否有效，无效就返回@""，有效就返回String
-/// @param obj 目标对象
-NSString * _Nonnull toString(id _Nullable obj);
+/// @param str 目标对象
+NSString * _Nonnull toString(id _Nullable str);
 
