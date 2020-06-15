@@ -175,7 +175,10 @@
         NSString *numberStr = [NSString stringWithFormat:@"%@",str];
         return numberStr;
     }
-    if ([str isEqualToString:@"<null>"]||[str isEqualToString:@"(null)"]||str==nil) {
+    if (str==nil||
+        [str isEqualToString:@"<null>"]||
+        [str isEqualToString:@"(null)"]||
+        [str isEqualToString:@"null"]) {
         return @"";
     }
     else{
@@ -185,7 +188,11 @@
 //判断是否为空
 +(BOOL)stringIsNull:(NSString *)str{
     str=[NSString stringWithFormat:@"%@",str];
-    if (str==nil||[str isEqualToString:@"<null>"]||[str isEqualToString:@"(null)"]||[str isEqualToString:@""]) {
+    if (str==nil||
+        [str isEqualToString:@"<null>"]||
+        [str isEqualToString:@"(null)"]||
+        [str isEqualToString:@"null"]||
+        [str isEqualToString:@""]) {
         return YES;
     }
     else{
@@ -310,6 +317,52 @@
 }
 
 
-
-
 @end
+    
+/// 校验字符串是否有效
+/// @param str 无效示例：nil/非String类型/@""/@"null"/@"<null>"/@"(null)"
+BOOL stringVaild(NSString * _Nullable str) {
+    if (!str) {
+        return NO;
+    }
+    if ([str isKindOfClass:NSString.class]) {
+        if (str.length < 1) {
+            return NO;
+        }
+        if ([str isEqualToString:@"null"]) {
+            return NO;
+        }
+        if ([str isEqualToString:@"<null>"]) {
+            return NO;
+        }
+        if ([str isEqualToString:@"(null)"]) {
+            return NO;
+        }
+    } else {
+        return NO;
+    }
+    return YES;
+}   
+ 
+/// 转化为String
+/// 首先检查是否有效，无效就返回@""，有效就返回String
+/// @param str 目标对象
+NSString * _Nonnull toString(id _Nullable str) {
+    if (!str) {
+        return @"";
+    }
+    if ([str isKindOfClass:NSString.class]) {
+        if ([(NSString *)str isEqualToString:@"null"]) {
+            return @"";
+        }
+        if ([(NSString *)str isEqualToString:@"<null>"]) {
+            return @"";
+        }
+        if ([(NSString *)str isEqualToString:@"(null)"]) {
+            return @"";
+        }
+    } else {
+        return @"";
+    }
+    return str;
+}
