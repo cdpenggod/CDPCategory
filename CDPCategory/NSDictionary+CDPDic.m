@@ -86,3 +86,16 @@
 
 
 @end
+
+/// 校验字典是否有效
+/// @param dic 无效示例：nil/非NSDictionary类型
+BOOL dicVaild(NSDictionary * _Nullable dic) {
+    if (dic == nil ||
+        [dic isKindOfClass:[NSNull class]] ||
+        ![dic isKindOfClass:[NSDictionary class]]) {
+        return NO;
+    }
+    else{
+        return YES;
+    }
+}    
