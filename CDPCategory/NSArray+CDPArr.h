@@ -16,6 +16,8 @@
  */
 +(BOOL)isNull:(NSArray *)arr;
 
-
-
 @end
+
+/// 校验数组是否有效
+/// @param arr 无效示例：nil/非NSArray类型
+BOOL arrVaild(NSArray * _Nullable arr);
