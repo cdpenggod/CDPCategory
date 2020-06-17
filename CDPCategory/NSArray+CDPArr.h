@@ -21,3 +21,8 @@
 /// 校验数组是否有效
 /// @param arr 无效示例：nil/非NSArray类型
 BOOL arrVaild(NSArray * _Nullable arr);
+
+/// 转化为Array
+/// 首先检查是否有效，无效就返回@[]，有效就返回Array
+/// @param obj 目标对象
+NSArray * _Nonnull toArr(id _Nullable obj);
