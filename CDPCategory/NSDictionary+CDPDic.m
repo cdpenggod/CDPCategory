@@ -99,3 +99,10 @@ BOOL dicVaild(NSDictionary * _Nullable dic) {
         return YES;
     }
 }    
+
+/// 转化为Dictionary
+/// 首先检查是否有效，无效就返回@{}，有效就返回Dictionary
+/// @param obj 目标对象
+NSDictionary * _Nonnull toDic(id _Nullable obj) {
+    return dicVaild(obj) ? obj : @{};
+}
