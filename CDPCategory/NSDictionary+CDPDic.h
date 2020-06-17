@@ -50,3 +50,7 @@
 /// @param dic 无效示例：nil/非NSDictionary类型
 BOOL dicVaild(NSDictionary * _Nullable dic);
 
+/// 转化为Dictionary
+/// 首先检查是否有效，无效就返回@{}，有效就返回Dictionary
+/// @param obj 目标对象
+NSDictionary * _Nonnull toDic(id _Nullable obj);
