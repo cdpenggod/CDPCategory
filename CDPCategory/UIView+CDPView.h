@@ -32,6 +32,13 @@
 @property (nonatomic,assign) CGFloat cornerRadius;
 
 /**
+ *  绘制圆角
+ *  @param corners 圆角类型
+ *  @param radius 圆角半径
+ */
+- (void)roundingCorners:(UIRectCorner)corners radius:(float)radius;
+
+/**
  *  设置layer的border
  */
 -(void)setBorderColor:(UIColor *)color width:(CGFloat)width;
