@@ -86,7 +86,26 @@
     self.layer.cornerRadius=cornerRadius;
     self.layer.masksToBounds=YES;
 }
-
+//绘制圆角
+- (void)roundingCorners:(UIRectCorner)corners radius:(float)radius {
+    self.layer.mask = nil;
+    if(corners && corners != 9999){
+        CGRect bounds = CGRectZero;
+        CGFloat offsetPoint = 1;
+        if (corners == (UIRectCornerBottomLeft | UIRectCornerBottomRight)) {
+            bounds = CGRectMake(0, -offsetPoint, self.bounds.size.width, self.bounds.size.height + offsetPoint);
+        } else if (corners == (UIRectCornerTopLeft | UIRectCornerTopRight)) {
+            bounds = CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height + offsetPoint);
+        } else {
+            bounds = self.bounds;
+        }
+        UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:bounds byRoundingCorners:corners cornerRadii:CGSizeMake(radius, radius)];
+        CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+        maskLayer.frame = self.bounds;
+        maskLayer.path = maskPath.CGPath;
+        self.layer.mask = maskLayer;
+    }
+}
 
 
 
