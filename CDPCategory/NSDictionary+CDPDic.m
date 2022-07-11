@@ -100,6 +100,11 @@ BOOL dicVaild(NSDictionary * _Nullable dic) {
     }
 }    
 
+//校验字典是否有效且有值
+BOOL dicNotEmpty(NSDictionary * _Nullable dic) {
+    return dicVaild(dic) && dic.allKeys.count > 0;
+}
+
 /// 转化为Dictionary
 /// 首先检查是否有效，无效就返回@{}，有效就返回Dictionary
 /// @param obj 目标对象
