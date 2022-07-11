@@ -50,6 +50,10 @@
 /// @param dic 无效示例：nil/非NSDictionary类型
 BOOL dicVaild(NSDictionary * _Nullable dic);
 
+/// 校验字典是否有效且有值
+/// @param dic 无效示例：nil/非NSDictionary类型 或 字典为空
+BOOL dicNotEmpty(NSDictionary * _Nullable dic);
+
 /// 转化为Dictionary
 /// 首先检查是否有效，无效就返回@{}，有效就返回Dictionary
 /// @param obj 目标对象
