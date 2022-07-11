@@ -22,6 +22,10 @@
 /// @param arr 无效示例：nil/非NSArray类型
 BOOL arrVaild(NSArray * _Nullable arr);
 
+/// 校验数组是否有效且有值
+/// @param arr 无效示例：nil/非NSArray类型 或 数组为空
+BOOL arrNotEmpty(NSArray * _Nullable arr);
+
 /// 转化为Array
 /// 首先检查是否有效，无效就返回@[]，有效就返回Array
 /// @param obj 目标对象
