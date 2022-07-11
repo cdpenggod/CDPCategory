@@ -38,6 +38,11 @@ BOOL arrVaild(NSArray * _Nullable arr) {
     }
 }
 
+//校验数组是否有效且有值
+BOOL arrNotEmpty(NSArray * _Nullable arr) {
+    return arrVaild(arr) && arr.count > 0;
+}
+
 /// 转化为Array
 /// 首先检查是否有效，无效就返回@[]，有效就返回Array
 /// @param obj 目标对象
