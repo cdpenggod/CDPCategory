@@ -23,6 +23,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NSObject (CDPSingleton)
 /// 使用时，将需要单例化的类遵循 <CDPSingleton> 协议，然后就可通过 cdp_sharedInstance 类方法调用该类单例
 
+/// 去除json数据中null键值
+/// @param JSONObject json数据，NSArray or NSDictionary
+/// @param readingOptions readingOptions
+static id CDPJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingOptions readingOptions);
+
 @end
 
 NS_ASSUME_NONNULL_END
